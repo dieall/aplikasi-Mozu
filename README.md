@@ -1,43 +1,88 @@
-# MOZU - Aplikasi Jasuke Mozarella
+# 🌽 MOZU - Aplikasi Jasuke Mozarella
 
-Aplikasi pemesanan digital untuk usaha Jasuke Mozarella dengan sistem manajemen lengkap.
+![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?style=flat&logo=laravel)
+![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=flat&logo=php)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?style=flat&logo=mysql)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-38B2AC?style=flat&logo=tailwind-css)
+
+Aplikasi pemesanan digital untuk usaha **Jasuke Mozarella** dengan sistem pembayaran manual dan integrasi QRIS.
 
 ## 🌟 Fitur Utama
 
-### Untuk Customer:
+### 👤 Customer Area
 - ✅ Browse menu produk Jasuke Mozarella
-- ✅ Keranjang belanja
-- ✅ Checkout dengan berbagai metode pembayaran (Cash, Transfer, E-wallet)
-- ✅ Pilihan Take Away atau Dine In
-- ✅ Riwayat pesanan (untuk user yang login)
-- ✅ Registrasi dan Login
+- ✅ Keranjang belanja interaktif
+- ✅ Checkout dengan berbagai metode pembayaran
+- ✅ Transfer Bank (BCA, Mandiri, BRI, BNI)
+- ✅ **QRIS** - Scan & Pay (bisa upload sendiri)
+- ✅ E-Wallet (GoPay, OVO, DANA)
+- ✅ Tunai di kasir
+- ✅ Riwayat pesanan
+- ✅ WhatsApp quick confirmation
 
-### Untuk Admin:
-- ✅ Dashboard dengan statistik penjualan
-- ✅ Manajemen produk (CRUD)
-- ✅ Manajemen pesanan dengan update status
-- ✅ Laporan penjualan harian
-- ✅ Monitoring stok produk
+### 👨‍💼 Admin Dashboard
+- ✅ Dashboard dengan statistik lengkap
+- ✅ Manajemen Produk (CRUD + Upload Gambar)
+- ✅ Manajemen Pesanan & Update Status
+- ✅ **Upload QRIS** sendiri via admin panel
+- ✅ Laporan Penjualan 30 hari
+- ✅ Monitor stok & produk terlaris
+- ✅ Real-time revenue tracking
 
-## 🛠️ Teknologi
+## 💰 Sistem Pembayaran
 
-- **Framework**: Laravel 11.x
-- **Database**: MySQL
-- **Frontend**: Blade Templates + Tailwind CSS
-- **Icons**: Font Awesome
+### 100% GRATIS - Tanpa Fee!
+- **Transfer Bank Manual** - Semua bank populer
+- **QRIS** - Upload QR Code dari bank Anda (fee 0.3-0.7%)
+- **E-Wallet Manual** - GoPay, OVO, DANA
+- **Tunai** - Bayar di kasir
 
-## 📋 Persyaratan Sistem
+### Opsional: Payment Gateway
+- Midtrans (sudah terintegrasi, bisa diaktifkan)
+- Auto-verification
+- Fee 0.7-3% per transaksi
 
+## 🚀 Quick Start
+
+### 1. Requirements
 - PHP >= 8.2
 - Composer
 - MySQL/MariaDB
-- Node.js & NPM (optional)
+- Laravel 11.x
 
-## 🚀 Instalasi
+### 2. Installation
 
-Aplikasi sudah siap digunakan! Database sudah dikonfigurasi dan data sample sudah diisi.
+```bash
+# Clone repository
+git clone https://github.com/dieall/aplikasi-Mozu.git
+cd aplikasi-Mozu
 
-### Akun Default:
+# Install dependencies
+composer install
+
+# Copy environment file
+cp .env.example .env
+
+# Generate key
+php artisan key:generate
+
+# Setup database
+# Edit .env dengan database Anda:
+# DB_DATABASE=db_mozu
+# DB_USERNAME=root
+# DB_PASSWORD=
+
+# Run migrations & seeders
+php artisan migrate --seed
+
+# Create storage link
+php artisan storage:link
+
+# Run server
+php artisan serve
+```
+
+### 3. Default Accounts
 
 **Admin:**
 - Email: `admin@mozu.com`
@@ -47,89 +92,113 @@ Aplikasi sudah siap digunakan! Database sudah dikonfigurasi dan data sample suda
 - Email: `customer@mozu.com`
 - Password: `password`
 
-## 🎯 Cara Menggunakan
+### 4. Access Application
 
-### 1. Jalankan Server Development
-
-```bash
-cd "C:\laragon\www\Aplikasi MOZU\mozu"
-php artisan serve
-```
-
-Akses aplikasi di: `http://localhost:8000`
-
-### 2. Akses Admin Dashboard
-
-1. Login dengan akun admin
-2. Akan otomatis redirect ke: `http://localhost:8000/admin/dashboard`
-3. Menu yang tersedia:
-   - Dashboard: Statistik dan overview
-   - Produk: Kelola menu produk
-   - Pesanan: Kelola dan update status pesanan
-   - Laporan: Laporan penjualan harian
-
-### 3. Customer Flow
-
-1. Kunjungi homepage untuk browse produk
-2. Klik "Tambah ke Keranjang" untuk menambah produk
-3. Lihat keranjang dengan klik icon cart di navbar
-4. Klik "Checkout" untuk melanjutkan pemesanan
-5. Isi data pelanggan, pilih metode pengambilan dan pembayaran
-6. Klik "Buat Pesanan"
-7. Pesanan berhasil dibuat dan akan muncul di halaman sukses
+- **Website**: http://localhost:8000
+- **Admin**: http://localhost:8000/admin/dashboard
 
 ## 📁 Struktur Database
 
-### Tabel Utama:
+- `users` - Data pengguna (admin & customer)
+- `products` - Produk Jasuke
+- `orders` - Pesanan customer
+- `order_items` - Detail item pesanan
+- `payments` - Data pembayaran
+- `settings` - Konfigurasi (QRIS, dll)
 
-1. **users** - Data pengguna (admin & customer)
-2. **products** - Data produk Jasuke
-3. **orders** - Data pesanan
-4. **order_items** - Detail item dalam pesanan
-5. **payments** - Data pembayaran
+## 🎨 Teknologi
 
-## 🎨 Fitur Unggulan
+- **Backend**: Laravel 11.x
+- **Database**: MySQL
+- **Frontend**: Blade Templates + TailwindCSS
+- **Icons**: Font Awesome 6.4.0
+- **Payment**: Midtrans (opsional), Manual Transfer, QRIS
 
-### Manajemen Produk
-- Upload gambar produk
-- Set status ketersediaan
-- Monitor stok otomatis berkurang saat ada pesanan
-- Alert stok menipis
+## 📱 Fitur QRIS
 
-### Sistem Pembayaran
-- Multiple payment methods (Cash, Transfer, E-wallet)
-- Status pembayaran (Pending, Paid, Failed)
-- Tracking pembayaran per order
+1. Login admin dashboard
+2. Menu **"Pengaturan"**
+3. Upload QR Code QRIS dari bank
+4. Customer otomatis lihat QRIS saat checkout!
 
-### Dashboard Admin
-- Real-time statistics
-- Grafik penjualan
-- Top selling products
-- Recent orders
+**Cara dapat QRIS**: Hubungi bank Anda (BCA, Mandiri, BRI, BNI) - **GRATIS!**
 
-## 📝 Catatan Pengembangan
+## 📚 Dokumentasi
 
-Aplikasi ini dikembangkan berdasarkan proposal kewirausahaan untuk:
-- **Usaha**: Jasuke Mozarella
-- **Institusi**: Institut Teknologi Nasional Bandung
-- **Program Studi**: Informatika
-- **Tim Pengembang**:
-  - Aldi (152022253)
-  - Khayla Giri Fitriani (152022078)
-  - Fadhilah Nurrahmayanti (152021018)
-  - Hilmy Raihan (152022228)
+### File Dokumentasi Lengkap:
+- `MULAI_DISINI.md` - Panduan Quick Start ⭐
+- `INSTALASI.md` - Panduan Instalasi Detail
+- `PANDUAN_UPLOAD_QRIS.md` - Cara upload & dapat QRIS
+- `PANDUAN_PEMBAYARAN_MANUAL.md` - Alur pembayaran manual
+- `INFO_PENTING_PEMBAYARAN.txt` - Checklist setup
+- `PANDUAN_MIDTRANS.md` - Integrasi Midtrans (opsional)
+- `AKUN_DEFAULT.txt` - Daftar akun & password
 
-## 🔒 Keamanan
+## ⚠️ Setup Pembayaran
 
-- Password di-hash menggunakan bcrypt
-- CSRF protection aktif
-- Middleware auth untuk proteksi route
-- Admin middleware untuk proteksi admin area
+### Edit Nomor Rekening (WAJIB!)
+
+File: `resources/views/order-success.blade.php`
+
+Ganti nomor dummy dengan nomor ASLI:
+- BCA: 8234567890 → [nomor Anda]
+- Mandiri: 1320012345678 → [nomor Anda]
+- BRI: 012301234567890 → [nomor Anda]
+- BNI: 1234567890123 → [nomor Anda]
+- E-wallet: 081234567890 → [nomor Anda]
+- WhatsApp: 6281234567890 → [nomor Anda]
+
+Baca: `INFO_PENTING_PEMBAYARAN.txt`
+
+## 🎯 Cara Konfirmasi Pembayaran
+
+1. Customer transfer & kirim bukti via WhatsApp
+2. Admin cek mutasi rekening
+3. Login admin → Menu Pesanan
+4. Update status → "Paid"
+5. Balas WhatsApp → Konfirmasi
+6. Proses pesanan
+
+## 🔐 Keamanan
+
+- Password hashing dengan bcrypt
+- CSRF protection
+- Authentication middleware
+- Admin-only middleware
+- Input validation
+- SQL injection protection
 
 ## 📞 Support
 
-Untuk pertanyaan atau bantuan, silakan hubungi tim pengembang.
+Untuk bantuan atau pertanyaan:
+- 📖 Baca dokumentasi lengkap di folder project
+- 📧 Contact: [Email support Anda]
+- 💬 WhatsApp: [Nomor WA Anda]
+
+## 👥 Tim Pengembang
+
+Dikembangkan oleh:
+- **Aldi** (152022253)
+- **Khayla Giri Fitriani** (152022078)
+- **Fadhilah Nurrahmayanti** (152021018)
+- **Hilmy Raihan** (152022228)
+
+**Institut Teknologi Nasional Bandung**  
+Program Studi Informatika - 2025
+
+## 📄 License
+
+Aplikasi ini dibuat untuk keperluan tugas kewirausahaan.
+
+## 🙏 Acknowledgments
+
+- Laravel Framework
+- Midtrans Payment Gateway
+- TailwindCSS
+- Font Awesome
 
 ---
 
 **© 2025 MOZU - Jasuke Mozarella. All rights reserved.**
+
+**Made with ❤️ for Jasuke Mozarella Business**
