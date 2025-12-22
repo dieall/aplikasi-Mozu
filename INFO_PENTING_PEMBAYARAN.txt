@@ -1,0 +1,174 @@
+=====================================
+  ⚠️ PENTING: UPDATE INFO PEMBAYARAN
+=====================================
+
+APLIKASI SUDAH MENAMPILKAN INFO PEMBAYARAN!
+--------------------------------------------
+
+Saat customer checkout dengan metode:
+- Transfer Bank
+- E-Wallet
+
+Mereka akan melihat:
+✓ Nomor rekening semua bank (BCA, Mandiri, BRI, BNI)
+✓ Nomor e-wallet (GoPay, OVO, DANA)  
+✓ QRIS info
+✓ Tombol WhatsApp untuk konfirmasi
+✓ Instruksi pembayaran lengkap
+
+
+⚠️ WAJIB EDIT SEBELUM PAKAI!
+-----------------------------
+
+File yang harus diedit:
+📁 resources/views/order-success.blade.php
+
+Yang harus diganti:
+
+1. NOMOR REKENING (CONTOH/DUMMY)
+   BCA      : 8234567890
+   Mandiri  : 1320012345678
+   BRI      : 012301234567890
+   BNI      : 1234567890123
+   
+   ➜ GANTI dengan nomor rekening ASLI Anda!
+
+2. NAMA PENERIMA (CONTOH)
+   a.n. MOZU Jasuke
+   
+   ➜ GANTI dengan nama pemilik rekening ASLI!
+
+3. NOMOR E-WALLET (CONTOH)
+   GoPay : 081234567890
+   OVO   : 081234567890
+   DANA  : 081234567890
+   
+   ➜ GANTI dengan nomor HP yang terdaftar!
+
+4. NOMOR WHATSAPP (CONTOH)
+   0812-3456-7890
+   Link: https://wa.me/6281234567890
+   
+   ➜ GANTI dengan nomor WA Anda!
+
+
+CARA EDIT CEPAT
+---------------
+
+1. Buka file: 
+   C:\laragon\www\Aplikasi MOZU\mozu\resources\views\order-success.blade.php
+
+2. Tekan Ctrl+F (Find)
+
+3. Cari: 8234567890
+   Ganti dengan: [Nomor rekening BCA Anda]
+
+4. Cari: 1320012345678
+   Ganti dengan: [Nomor rekening Mandiri Anda]
+
+5. Cari: 012301234567890
+   Ganti dengan: [Nomor rekening BRI Anda]
+
+6. Cari: 1234567890123
+   Ganti dengan: [Nomor rekening BNI Anda]
+
+7. Cari: MOZU Jasuke
+   Ganti dengan: [Nama pemilik rekening Anda]
+
+8. Cari: 081234567890
+   Ganti dengan: [Nomor HP/e-wallet Anda]
+
+9. Cari: wa.me/6281234567890
+   Ganti dengan: wa.me/62[nomor WA Anda tanpa 0]
+   Contoh: wa.me/628123456789
+
+10. Save file (Ctrl+S)
+
+
+TIDAK PUNYA SEMUA BANK?
+-----------------------
+
+Tidak masalah! Anda bisa:
+
+1. Hapus bank yang tidak punya
+2. Atau biarkan, tapi kasih catatan "Belum tersedia"
+3. Minimal punya 1-2 bank populer (BCA/Mandiri) sudah cukup
+
+
+SETELAH EDIT
+------------
+
+1. Save file
+2. Refresh browser
+3. Test checkout
+4. Cek halaman order success
+5. Pastikan nomor rekening sudah benar!
+
+
+CARA TERIMA PEMBAYARAN
+----------------------
+
+1. Customer checkout → Lihat info rekening
+2. Customer transfer
+3. Customer kirim bukti via WhatsApp
+4. Anda cek mutasi rekening
+5. Login admin → Update status jadi "Paid"
+6. Balas WA → Konfirmasi pembayaran
+7. Proses pesanan
+
+Baca detail: PANDUAN_PEMBAYARAN_MANUAL.md
+
+
+KEUNTUNGAN SISTEM INI
+---------------------
+
+✓ 100% GRATIS (tidak ada fee)
+✓ Semua uang masuk ke rekening Anda
+✓ Fleksibel untuk customer
+✓ Cocok untuk usaha kecil
+✓ Tidak perlu daftar payment gateway
+
+
+UPGRADE NANTI (OPSIONAL)
+------------------------
+
+Jika transaksi sudah banyak (>50/hari):
+- Bisa tambah Midtrans/Xendit
+- Auto-verify pembayaran  
+- Fee 0.7-3% per transaksi
+- Lebih efisien untuk volume tinggi
+
+Baca: PANDUAN_MIDTRANS.md
+
+
+BANTUAN
+-------
+
+Baca dokumentasi lengkap:
+📖 PANDUAN_PEMBAYARAN_MANUAL.md
+
+
+CHECKLIST SEBELUM PAKAI
+-----------------------
+
+□ Edit nomor rekening (semua bank)
+□ Edit nama penerima
+□ Edit nomor e-wallet
+□ Edit nomor WhatsApp
+□ Test checkout
+□ Cek tampilan order success
+□ Simpan nomor rekening dengan aman
+□ Siapkan template pesan WA
+
+
+⚠️ JANGAN LUPA EDIT!
+--------------------
+
+Kalau tidak diedit, customer akan kirim uang
+ke nomor rekening DUMMY yang tidak ada!
+
+
+=====================================
+        © 2025 MOZU - Jasuke Mozarella
+=====================================
+

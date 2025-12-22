@@ -1,0 +1,110 @@
+=====================================
+  KONFIGURASI MIDTRANS
+=====================================
+
+LANGKAH 1: DAFTAR AKUN MIDTRANS (GRATIS)
+-----------------------------------------
+1. Buka: https://dashboard.midtrans.com/register
+2. Daftar dengan email Anda
+3. Verifikasi email
+4. Login ke dashboard
+
+
+LANGKAH 2: DAPATKAN API KEYS (SANDBOX)
+---------------------------------------
+1. Login ke Dashboard Midtrans
+2. Pilih environment: SANDBOX (untuk testing)
+3. Klik Settings → Access Keys
+4. Copy kredensial berikut:
+   - Merchant ID
+   - Client Key
+   - Server Key
+
+
+LANGKAH 3: TAMBAHKAN KE FILE .ENV
+----------------------------------
+Buka file .env di folder mozu, tambahkan baris berikut di bagian bawah:
+
+# Midtrans Configuration
+MIDTRANS_MERCHANT_ID=your_merchant_id
+MIDTRANS_CLIENT_KEY=your_client_key
+MIDTRANS_SERVER_KEY=your_server_key
+MIDTRANS_IS_PRODUCTION=false
+MIDTRANS_IS_SANITIZED=true
+MIDTRANS_IS_3DS=true
+
+Ganti:
+- your_merchant_id dengan Merchant ID Anda
+- your_client_key dengan Client Key Anda
+- your_server_key dengan Server Key Anda
+
+
+CONTOH:
+-------
+MIDTRANS_MERCHANT_ID=G812345678
+MIDTRANS_CLIENT_KEY=SB-Mid-client-abc123xyz
+MIDTRANS_SERVER_KEY=SB-Mid-server-abc123xyz456
+MIDTRANS_IS_PRODUCTION=false
+
+
+LANGKAH 4: RESTART SERVER
+--------------------------
+Setelah menambahkan ke .env, restart server Laravel:
+
+1. Stop server (Ctrl+C)
+2. Jalankan lagi: php artisan serve
+
+
+TESTING DENGAN SANDBOX
+-----------------------
+Midtrans Sandbox menyediakan nomor kartu test GRATIS:
+
+Credit Card Test:
+- Nomor: 4811 1111 1111 1114
+- CVV: 123
+- Exp: 01/25
+
+GoPay Test:
+- PIN: 123456
+
+QRIS Test:
+- Scan QR akan langsung sukses
+
+
+METODE PEMBAYARAN YANG TERSEDIA
+--------------------------------
+✓ Credit Card (Visa, Mastercard, JCB, Amex)
+✓ Bank Transfer (BCA, Mandiri, BNI, BRI, Permata)
+✓ E-Wallet (GoPay, ShopeePay)
+✓ QRIS
+✓ Convenience Store (Indomaret, Alfamart)
+
+
+URL PENTING
+-----------
+Dashboard Sandbox: https://dashboard.sandbox.midtrans.com
+Dashboard Production: https://dashboard.midtrans.com
+Dokumentasi: https://docs.midtrans.com
+
+
+CATATAN
+-------
+- Sandbox mode GRATIS untuk testing
+- Tidak perlu kartu kredit real
+- Semua transaksi di sandbox adalah simulasi
+- Untuk production, perlu verifikasi bisnis
+
+
+BANTUAN
+-------
+Jika ada masalah:
+1. Cek API Keys sudah benar
+2. Pastikan server sudah di-restart
+3. Cek console browser (F12) untuk error
+4. Lihat log Laravel: storage/logs/laravel.log
+
+
+=====================================
+        © 2025 MOZU - Jasuke Mozarella
+=====================================
+

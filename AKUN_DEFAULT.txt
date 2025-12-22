@@ -1,0 +1,110 @@
+=====================================
+  AKUN DEFAULT APLIKASI MOZU
+=====================================
+
+ADMIN
+-----
+Email    : admin@mozu.com
+Password : password
+Role     : Administrator
+URL      : http://localhost:8000/admin/dashboard
+
+Akses:
+✓ Dashboard statistik
+✓ Kelola produk (CRUD)
+✓ Kelola pesanan
+✓ Update status pesanan
+✓ Laporan penjualan
+
+
+CUSTOMER
+--------
+Email    : customer@mozu.com
+Password : password
+Role     : Customer
+URL      : http://localhost:8000
+
+Akses:
+✓ Browse produk
+✓ Keranjang belanja
+✓ Checkout
+✓ Riwayat pesanan
+
+
+PRODUK SAMPLE
+-------------
+1. Jasuke Mozarella Original - Rp 12.000
+2. Jasuke Mozarella Spesial - Rp 15.000
+3. Jasuke Mozarella Coklat - Rp 13.000
+4. Jasuke Mozarella Pedas - Rp 14.000
+5. Jasuke Mozarella Jumbo - Rp 20.000
+
+
+CARA JALANKAN APLIKASI
+----------------------
+1. Buka Terminal/Command Prompt
+2. Jalankan:
+   cd "C:\laragon\www\Aplikasi MOZU\mozu"
+   php artisan serve
+3. Buka browser: http://localhost:8000
+
+
+CATATAN PENTING
+---------------
+- Pastikan Laragon sudah running
+- Pastikan database db_mozu sudah dibuat
+- Untuk reset data, jalankan:
+  php artisan migrate:fresh --seed
+
+
+STRUKTUR APLIKASI
+-----------------
+Customer Area:
+- / (Home - Browse Produk)
+- /cart (Keranjang)
+- /order/checkout (Checkout)
+- /order/my-orders (Pesanan Saya - Auth Required)
+- /login (Login)
+- /register (Register)
+
+Admin Area:
+- /admin/dashboard (Dashboard)
+- /admin/products (Kelola Produk)
+- /admin/orders (Kelola Pesanan)
+- /admin/reports (Laporan)
+
+
+FITUR PEMBAYARAN
+----------------
+Metode pembayaran yang tersedia:
+✓ Cash (Tunai)
+✓ Transfer Bank
+✓ E-Wallet (GoPay, OVO, DANA)
+
+Catatan: Tanpa integrasi Midtrans
+Status pembayaran dikelola manual oleh admin
+
+
+METODE PENGAMBILAN
+------------------
+✓ Take Away (Bawa Pulang)
+✓ Dine In (Makan di Tempat)
+
+
+TEKNOLOGI
+---------
+Framework  : Laravel 11.x
+Database   : MySQL (db_mozu)
+Frontend   : Blade + Tailwind CSS
+Icons      : Font Awesome
+
+
+CONTACT & SUPPORT
+-----------------
+Untuk bantuan teknis atau pertanyaan,
+hubungi tim pengembang.
+
+=====================================
+        © 2025 MOZU - Jasuke Mozarella
+=====================================
+

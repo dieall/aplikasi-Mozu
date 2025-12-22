@@ -1,0 +1,149 @@
+=====================================
+  MIDTRANS TEST CARDS & CREDENTIALS
+  (UNTUK TESTING - 100% GRATIS)
+=====================================
+
+CREDIT CARD - PEMBAYARAN SUKSES
+--------------------------------
+Nomor Kartu : 4811 1111 1111 1114
+CVV         : 123
+Exp Date    : 01/25 (atau bulan/tahun di masa depan)
+OTP/3DS     : 112233
+
+Hasil: Pembayaran SUKSES ✅
+Status: Settlement
+
+
+CREDIT CARD - PEMBAYARAN GAGAL
+-------------------------------
+Nomor Kartu : 4911 1111 1111 1113
+CVV         : 123
+Exp Date    : 01/25
+
+Hasil: Pembayaran DITOLAK ❌
+Status: Deny
+
+
+CREDIT CARD - CHALLENGE (FDS)
+------------------------------
+Nomor Kartu : 4411 1111 1111 1118
+CVV         : 123
+Exp Date    : 01/25
+OTP/3DS     : 112233
+
+Hasil: Challenge (Fraud Detection)
+Status: Challenge
+
+
+GOPAY TEST
+----------
+1. Pilih metode GoPay
+2. Scan QR code (akan muncul)
+3. Masukkan PIN: 123456
+
+Hasil: Pembayaran SUKSES ✅
+
+
+SHOPEEPAY TEST
+--------------
+1. Pilih ShopeePay
+2. Akan redirect ke simulasi ShopeePay
+3. Klik "Pay"
+
+Hasil: Pembayaran SUKSES ✅
+
+
+BANK TRANSFER TEST
+------------------
+Pilih bank apapun:
+- BCA Virtual Account
+- Mandiri Bill Payment
+- BNI Virtual Account
+- BRI Virtual Account
+- Permata Virtual Account
+
+Di SANDBOX: Otomatis SUKSES setelah beberapa detik ✅
+
+
+QRIS TEST
+---------
+1. Pilih QRIS
+2. QR code akan muncul
+3. Di sandbox: Otomatis SUKSES ✅
+
+
+INDOMARET/ALFAMART TEST
+-----------------------
+1. Pilih Indomaret atau Alfamart
+2. Dapatkan payment code
+3. Di sandbox: Otomatis SUKSES ✅
+
+
+KREDIVO/AKULAKU TEST
+--------------------
+1. Pilih Kredivo atau Akulaku
+2. Login dengan:
+   Phone   : 08123456789
+   OTP     : 112233
+3. Pilih tenor cicilan
+
+Hasil: Pembayaran SUKSES ✅
+
+
+PENTING!
+--------
+✓ Semua kartu di atas HANYA untuk SANDBOX (testing)
+✓ TIDAK PERLU kartu kredit asli
+✓ TIDAK ADA biaya
+✓ TIDAK ADA transaksi real
+✓ Semua transaksi adalah SIMULASI
+
+
+CARA MENGGUNAKAN
+----------------
+1. Checkout di aplikasi MOZU
+2. Pilih "Midtrans Payment Gateway"
+3. Klik "Bayar Sekarang"
+4. Popup Midtrans akan muncul
+5. Pilih metode pembayaran
+6. Gunakan test credentials di atas
+7. Selesai!
+
+
+STATUS TRANSAKSI
+----------------
+Settlement  = Sukses, uang diterima
+Pending     = Menunggu pembayaran
+Deny        = Ditolak
+Expire      = Kadaluarsa (24 jam)
+Cancel      = Dibatalkan
+Refund      = Dikembalikan
+
+
+CEK TRANSAKSI
+-------------
+Dashboard Midtrans:
+https://dashboard.sandbox.midtrans.com
+
+Menu: Transactions
+Lihat semua transaksi test Anda
+
+
+DOKUMENTASI LENGKAP
+-------------------
+Baca: PANDUAN_MIDTRANS.md
+Untuk setup lengkap step-by-step
+
+
+LINK PENTING
+------------
+Dashboard Sandbox : https://dashboard.sandbox.midtrans.com
+Docs Testing      : https://docs.midtrans.com/docs/testing-payment
+Support           : support@midtrans.com
+
+
+=====================================
+        © 2025 MOZU - Jasuke Mozarella
+        Powered by Midtrans
+=====================================
+
