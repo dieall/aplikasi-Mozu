@@ -9,24 +9,26 @@
 </head>
 <body class="bg-gray-50">
     <!-- Navbar -->
-    <nav class="bg-white shadow-lg">
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
                 <div class="flex items-center">
-                    <a href="{{ route('home') }}" class="text-2xl font-bold text-orange-600">
-                        <i class="fas fa-corn"></i> MOZU
+                    <a href="{{ route('home') }}" class="text-xl sm:text-2xl font-bold text-orange-600">
+                        <i class="fas fa-corn"></i> <span class="hidden xs:inline">MOZU</span>
                     </a>
                 </div>
                 
-                <div class="flex items-center space-x-4">
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-4">
                     @auth
                         @if(auth()->user()->isAdmin())
-                            <a href="{{ route('admin.dashboard') }}" class="text-gray-700 hover:text-orange-600">
-                                <i class="fas fa-chart-line"></i> Dashboard Admin
+                            <a href="{{ route('admin.dashboard') }}" class="text-gray-700 hover:text-orange-600 text-sm lg:text-base">
+                                <i class="fas fa-chart-line"></i> <span class="hidden lg:inline">Dashboard Admin</span>
                             </a>
                         @else
-                            <a href="{{ route('order.my-orders') }}" class="text-gray-700 hover:text-orange-600">
-                                <i class="fas fa-receipt"></i> Pesanan Saya
+                            <a href="{{ route('order.my-orders') }}" class="text-gray-700 hover:text-orange-600 text-sm lg:text-base">
+                                <i class="fas fa-receipt"></i> <span class="hidden lg:inline">Pesanan Saya</span>
                             </a>
                         @endif
                     @endauth
@@ -44,17 +46,17 @@
                     </a>
                     
                     @guest
-                        <a href="{{ route('login') }}" class="text-gray-700 hover:text-orange-600">
-                            <i class="fas fa-sign-in-alt"></i> Login
+                        <a href="{{ route('login') }}" class="text-gray-700 hover:text-orange-600 text-sm lg:text-base">
+                            <i class="fas fa-sign-in-alt"></i> <span class="hidden lg:inline">Login</span>
                         </a>
-                        <a href="{{ route('register') }}" class="bg-orange-600 text-white px-4 py-2 rounded-lg hover:bg-orange-700">
+                        <a href="{{ route('register') }}" class="bg-orange-600 text-white px-3 lg:px-4 py-2 rounded-lg hover:bg-orange-700 text-sm lg:text-base">
                             Daftar
                         </a>
                     @else
                         <div class="relative group">
                             <button class="flex items-center space-x-2 text-gray-700 hover:text-orange-600">
                                 <i class="fas fa-user-circle text-xl"></i>
-                                <span>{{ auth()->user()->name }}</span>
+                                <span class="hidden lg:inline">{{ auth()->user()->name }}</span>
                             </button>
                             <div class="hidden group-hover:block absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
                                 <form action="{{ route('logout') }}" method="POST">
@@ -67,9 +69,70 @@
                         </div>
                     @endguest
                 </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center space-x-3">
+                    <a href="{{ route('cart.index') }}" class="relative text-gray-700 hover:text-orange-600">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        @if($cartCount > 0)
+                            <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                                {{ $cartCount }}
+                            </span>
+                        @endif
+                    </a>
+                    <button id="mobile-nav-button" class="text-gray-700 hover:text-orange-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 bg-white">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                @auth
+                    @if(auth()->user()->isAdmin())
+                        <a href="{{ route('admin.dashboard') }}" class="block px-3 py-2 rounded-md text-gray-700 hover:text-orange-600 hover:bg-gray-50">
+                            <i class="fas fa-chart-line mr-2"></i> Dashboard Admin
+                        </a>
+                    @else
+                        <a href="{{ route('order.my-orders') }}" class="block px-3 py-2 rounded-md text-gray-700 hover:text-orange-600 hover:bg-gray-50">
+                            <i class="fas fa-receipt mr-2"></i> Pesanan Saya
+                        </a>
+                    @endif
+                    <div class="border-t border-gray-200 my-2"></div>
+                    <div class="px-3 py-2 text-sm text-gray-600">
+                        <i class="fas fa-user mr-2"></i> {{ auth()->user()->name }}
+                    </div>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="block w-full text-left px-3 py-2 rounded-md text-gray-700 hover:text-red-600 hover:bg-gray-50">
+                            <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                        </button>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}" class="block px-3 py-2 rounded-md text-gray-700 hover:text-orange-600 hover:bg-gray-50">
+                        <i class="fas fa-sign-in-alt mr-2"></i> Login
+                    </a>
+                    <a href="{{ route('register') }}" class="block px-3 py-2 rounded-md bg-orange-600 text-white hover:bg-orange-700 text-center">
+                        Daftar
+                    </a>
+                @endguest
             </div>
         </div>
     </nav>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileNavButton = document.getElementById('mobile-nav-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileNavButton) {
+            mobileNavButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
 
     <!-- Flash Messages -->
     @if(session('success'))
