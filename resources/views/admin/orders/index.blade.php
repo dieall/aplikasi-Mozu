@@ -30,7 +30,7 @@
 <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
     <div class="bg-gradient-to-br from-gray-500 to-gray-600 text-white rounded-xl p-4 shadow-lg">
         <p class="text-gray-100 text-xs mb-1">Total</p>
-        <p class="text-2xl font-bold">{{ $orders->total() }}</p>
+        <p class="text-2xl font-bold">{{ $orders->count() }}</p>
     </div>
     
     <div class="bg-gradient-to-br from-yellow-500 to-yellow-600 text-white rounded-xl p-4 shadow-lg">
@@ -136,13 +136,6 @@
         </table>
     </div>
 </div>
-
-<!-- Pagination -->
-@if($orders->hasPages())
-    <div class="mt-6">
-        {{ $orders->links() }}
-    </div>
-@endif
 
 <script>
 // Search functionality

@@ -34,7 +34,7 @@
         <div class="flex items-center justify-between">
             <div>
                 <p class="text-blue-100 text-sm mb-1">Total Produk</p>
-                <p class="text-3xl font-bold">{{ $products->total() }}</p>
+                <p class="text-3xl font-bold">{{ $products->count() }}</p>
             </div>
             <i class="fas fa-box text-4xl text-white/30"></i>
         </div>
@@ -144,13 +144,6 @@
         </table>
     </div>
 </div>
-
-<!-- Pagination -->
-@if($products->hasPages())
-    <div class="mt-6">
-        {{ $products->links() }}
-    </div>
-@endif
 
 <script>
 // Search functionality
